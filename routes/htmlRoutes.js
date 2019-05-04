@@ -9,7 +9,7 @@ module.exports = function(app) {
     //     examples: dbExamples
     //   });
     // });
-    res.sendFile(path.join(__dirname + "/../public/lease.html"));
+    res.sendFile(path.join(__dirname + "/../views/layouts/lease.html"));
   });
 
   // Load example page and pass in an example by id
@@ -21,6 +21,11 @@ module.exports = function(app) {
         example: dbExample
       });
     });
+  });
+
+  // Route for rendering the posting.html page
+  app.get("/posting", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../views/layouts/posting.html"));
   });
 
   // Render 404 page for any unmatched routes
