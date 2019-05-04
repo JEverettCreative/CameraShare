@@ -1,18 +1,31 @@
 .list-group-item {
-  line-height: 2.5;
+  line-height: 5.5;
+}
+
+.container{
+  display: flex;
+    justify-content: space-around;
+     align-items: center
+
 }
 
 .nav{
-  width: 24%; 
+  width: 24%;
+  padding: 5;
+  margin: 5;
   display: inline-block;
-  padding: 0;
-  margin: 0;
   text-align: center;
-  border: 2px solid blueviolet;
+  border: 2px solid blue;
   height: 300px;
-  width: 300px;
+  width: 600px;
+}
+p{
+
+  display: inline-block;
+  font: bold;
 
 }
 
-body{
-  background-color:blue}
+body {
+  background-color: blue;
+}

@@ -1,14 +1,21 @@
-$("#search-btn").on("click", function(event) {
+$(".category-button").on("click", function(event) {
   event.preventDefault();
 
-  var categorySearched = $("#category-search")
-    .val()
-    .trim();
+  //   var categorySearched = $("#category-search")
+  //     .val()
+  //     .trim();
 
-  $.get("/api/" + categorySearched, function(data) {
-    console.log(data);
-    renderitem(data);
+  //   $.get("/api/" + categorySearched, function(data) {
+  //     console.log(data);
+  //     renderitem(data);
+  //   });
+  $.ajax({
+    type: "get",
+    url: "/api/categories"
+  }).then(function(data) {
+    console.log("this is what we got back", data);
   });
+  console.log("you got clicked");
 });
 
 $("#name-search-btn").on("click", function() {

@@ -2,7 +2,23 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
+  app.get("/api/categories", function(req, res) {
+    console.log("we hit the route");
+    var TestItem = {
+      price: 120,
+      name: "alexa mini",
+      category: "cameras",
+      description: "just a test",
+      available: false
+    };
+
+    db.Category.findAll({
+      where: { category: "cameras" }
+    }).then(function(data) {
+      res.json(data);
+    });
+
+    res.send("we sent back")
     db.Example.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
