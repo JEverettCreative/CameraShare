@@ -2,12 +2,12 @@
   line-height: 5.5;
 }
 
-.container{
+/* .container{
   display: flex;
     justify-content: space-around;
      align-items: center
 
-}
+} */
 
 .nav{
   width: 24%;
@@ -25,10 +25,10 @@ p{
   font: bold;
 
 }
-
+/* 
 body {
   background-color: blue;
-}
+} */
 
 .dodge-navbar {
   margin-top: 5em;

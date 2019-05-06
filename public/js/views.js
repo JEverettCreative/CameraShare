@@ -55,10 +55,6 @@ $(document).on("load", function() {
     }
   }
 
-  function testFunction() {
-    console.log("hit in the face");
-    res.render("/");
-  }
   // Click function for doing the post operation off the form submit on posting.html
   $("#submit-rental").on("click", function(event) {
     event.preventDefault();
@@ -76,6 +72,8 @@ $(document).on("load", function() {
       category: $("#rental-category").val()
     };
 
-    $.post("/api/rentals", rental, testFunction);
+    $.post("/api/rentals", rental, function() {
+      window.location.href = "/";
+    });
   });
 });
