@@ -1,8 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": "masterefj",
-    "database": "exampledb",
+
+    "password": "lily1chloe2",
+    "database": "camerashare_db",
+
     "host": "localhost",
     "dialect": "mysql"
   },
