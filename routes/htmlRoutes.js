@@ -2,7 +2,7 @@ var db = require("../models");
 var path = require("path");
 module.exports = function(app) {
   // Load index page
-  app.get("/home", function(req, res) {
+  app.get("/", function(req, res) {
     // db.Example.findAll({}).then(function(dbExamples) {
     //   res.render("index", {
     //     msg: "Welcome!",
@@ -13,7 +13,7 @@ module.exports = function(app) {
   });
 
   // Load leasing page
-  app.get("/", function(req, res) {
+  app.get("/lease", function(req, res) {
     // db.Example.findAll({}).then(function(dbExamples) {
     //   res.render("index", {
     //     msg: "Welcome!",
