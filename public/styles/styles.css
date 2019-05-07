@@ -1,7 +1,25 @@
 .list-group-item {
-  line-height: 2.5;
+  line-height: 5.5;
 }
 
-.dodge-navbar {
-  margin-top: 5em;
+
+
+.items{
+  
+    display: flex;
+    justify-content: space-around;
+    border:1px solid;
+     align-items: center
+}
+
+.item{
+  border: 2px solid black;
+    height: 400px;
+    width: 400px;
+}
+
+.jumbotron{
+  padding-top: 30%;
+  padding-bottom: 30%;
+  margin-top: 5%;
 }
