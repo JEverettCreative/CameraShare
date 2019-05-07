@@ -55,7 +55,7 @@ module.exports = function(app) {
 //   redirecting the user to google.com.  After authorization, Google
 //   will redirect the user back to this application at /auth/google/callback
 app.get('/auth/google',
-passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/userinfo.profile'] }));
 
 // GET /auth/google/callback
 //   Use passport.authenticate() as route middleware to authenticate the
@@ -63,7 +63,7 @@ passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.
 //   login page.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the home page.
 app.get('/auth/google/callback', 
-passport.authenticate('google', { failureRedirect: '/login' }),
+passport.authenticate('google', { failureRedirect: '/' }),
 function(req, res) {
   res.redirect('/');
 });
