@@ -2,30 +2,24 @@
   line-height: 5.5;
 }
 
-.container{
-  display: flex;
+
+
+.items{
+  
+    display: flex;
     justify-content: space-around;
+    border:1px solid;
      align-items: center
-
 }
 
-.nav{
-  width: 24%;
-  padding: 5;
-  margin: 5;
-  display: inline-block;
-  text-align: center;
-  border: 2px solid blue;
-  height: 300px;
-  width: 600px;
-}
-p{
-
-  display: inline-block;
-  font: bold;
-
+.item{
+  border: 2px solid black;
+    height: 400px;
+    width: 400px;
 }
 
-body {
-  background-color: blue;
+.jumbotron{
+  padding-top: 30%;
+  padding-bottom: 30%;
+  margin-top: 5%;
 }

@@ -2,26 +2,32 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/categories", function(req, res) {
-    console.log("we hit the route");
-    var TestItem = {
-      price: 120,
-      name: "alexa mini",
-      category: "cameras",
-      description: "just a test",
-      available: false
-    };
+  app.get("/api/categories/:category", function(req, res) {
+    console.log("we hit the route", req.params);
+    // // var TestItem = {
+    //   price: 400,
+    //   name: "nikon camera",
+    //   category: "cameras",
+    //   description: "this is a nice camera",
+    //   available: true
+    // };
 
-    db.Category.findAll({
-      where: { category: "cameras" }
-    }).then(function(data) {
-      res.json(data);
-    });
+    db.category
+      .findAll({
+        where: { category: req.params.category }
+      })
+      .then(function(data) {
+        res.json(data);
+      });
 
-    res.send("we sent back")
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
+    // db.category.create(TestItem).then(function(data){
+    //   console.log(data)
+    // })
+
+    // res.send("we sent back")
+    // db.Example.findAll({}).then(function(dbExamples) {
+    //   res.json(dbExamples);
+    // });
   });
 
   // Create a new example
