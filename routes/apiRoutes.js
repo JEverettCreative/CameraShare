@@ -31,9 +31,11 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  app.post("/api/posting", function(req, res) {
+    console.log("hit the posting route");
+    db.category.create(req.body).then(function(data) {
+      console.log(data);
+      res.json(data);
     });
   });
 
