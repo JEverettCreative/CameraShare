@@ -40,17 +40,19 @@ $(document).on("click", ".item", function(event) {
   }).then(function(data) {
     console.log("this is what we got back", data);
     $(".result").empty();
-    for (var i = 0; i < 4; i++) {
-      var item = $("<div>");
+    var dataArray = data.map(function(index) {
+      console.log("what is the index?? ====>", index.price);
+      var itemField = $("<div>");
       var description = $("<p>");
       var price = $("<p>");
-      price.text(data[i].price);
-      description.text(data[i].description);
-      item.text(data[i].name);
-      item.append(description, price);
-
-      $(".result").append(item);
-    }
+      price.text(index.price);
+      description.text(index.description);
+      itemField.text(index.name);
+      itemField.append(description, price);
+      // for (var i = 0; i < 4; i++) {
+      //  }
+      $(".result").append(itemField);
+    });
   });
 
   console.log("you got clicked");
