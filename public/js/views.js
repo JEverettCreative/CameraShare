@@ -92,3 +92,8 @@ $("#rental-submit").on("click", function(event) {
   postFormData(formData);
   location.reload();
 });
+
+// $("#checkout").on("click", function(event) {
+//   event.preventDefault();
+//   assemble
+// })
