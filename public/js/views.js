@@ -45,7 +45,7 @@ $(document).on("click", ".item", function(event) {
       var itemField = $('<div class="col">');
       var resultCard = $('<div class="card"></div>');
       var cardTitle = $('<h5 class="text-uppercase"></h5>');
-      var checkoutButton = $('<button class="checkout">Lease Me</button>');
+      var checkoutButton = $('<button class="checkout" ' + 'value=' + index.id + '>Lease Me</button>');
       var description = $("<p>");
       var price = $('<p class="card-text">');
       price.text(index.price);
@@ -87,9 +87,21 @@ function postFormData(formData) {
     console.log("this is what we got back", data);
   });
 }
+
 $("#rental-submit").on("click", function(event) {
   event.preventDefault();
   var formData = acquireFormData();
   console.log(formData);
   postFormData(formData);
+  location.reload();
+});
+
+$(document).on("click", ".checkout", function(event) {
+  event.preventDefault();
+  console.log("Thanks for clicking me, asshole.");
+  var cartItem = $(this).val();
+  console.log(cartItem);
+  window.location.href = "/cart/cartItem/" + cartItem;
+  console.log(cartItem);
+  $("#cart-container").append(cartItem);
 });
