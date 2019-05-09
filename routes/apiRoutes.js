@@ -30,6 +30,10 @@ module.exports = function(app) {
     // });
   });
 
+  app.get("/cart/cartItem/:cartItem", function(req, res) {
+    console.log("there's a route here, dude", req.params);
+  });
+
   // Create a new example
   app.post("/api/posting", function(req, res) {
     console.log("hit the posting route");
