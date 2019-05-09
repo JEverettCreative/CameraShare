@@ -3,14 +3,26 @@ var path = require("path");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    // db.Example.findAll({}).then(function(dbExamples) {
-    //   res.render("index", {
-    //     msg: "Welcome!",
-    //     examples: dbExamples
-    //   });
-    // });
+    if (req.session.token) {
+      res.cookie('token', req.session.token);
+      res.json({
+          status: 'session cookie set'
+      });
+  } 
+  // else {
+  //     res.cookie('token', '')
+  //     res.json({
+  //         status: 'session cookie not set'
+  //     });
+  //   }
     res.sendFile(path.join(__dirname + "/../views/layouts/index.html"));
   });
+
+  app.get('/logout', (req, res) => {
+    req.logout();
+    req.session = null;
+    res.redirect('/');
+});
 
   // Load leasing page
   app.get("/lease", function(req, res) {

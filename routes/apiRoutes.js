@@ -65,7 +65,7 @@ passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/useri
 app.get('/auth/google/callback', 
 passport.authenticate('google', { failureRedirect: '/' }),
 function(req, res) {
+  req.session.token = req.user.token;
   res.redirect('/');
 });
 };
-

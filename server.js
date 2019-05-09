@@ -1,6 +1,11 @@
 require("dotenv").config();
 var express = require("express");
+var session = require("express-session")
 // var exphbs = require("express-handlebars");
+var passport = require("passport");
+var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+var cookieParser = require("cookie-parser");
+var cookieSession = require("cookie-session");
 
 var db = require("./models");
 
@@ -11,6 +16,14 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(cookieSession({
+  name: 'session',
+  keys: [process.env.COOKIE_KEY]
+}));
+app.use(cookieParser());
 
 // Handlebars
 // app.engine(
@@ -34,15 +47,23 @@ if (process.env.NODE_ENV === "test") {
 }
 
 
-require("dotenv").config();
 
-var passport = require("passport");
-var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
 // Use the GoogleStrategy within Passport.
 //   Strategies in Passport require a `verify` function, which accept
 //   credentials (in this case, an accessToken, refreshToken, and Google
-//   profile), and invoke a callback with a user object.
+//   profile), and invoke a callback with a profile object.
+
+passport.serializeUser(function(profile, done) {
+  console.log('Serialize profile called.');
+  return done(null, profile);
+});
+
+passport.deserializeUser(function(id, done) {
+  console.log('Deserialize profile called.');
+  return done(null, profile);
+  });
+
 passport.use(
   new GoogleStrategy(
     {
@@ -50,10 +71,15 @@ passport.use(
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
       callbackURL: process.env.CALLBACK_URL
     },
-    function(accessToken, refreshToken, profile, done) {
-      User.findOrCreate({ googleId: profile.id }, function(err, user) {
-        return done(err, user);
-      });
+    function(accessToken, refreshToken, profile, err) {
+      console.log('USER ===>', profile);
+      if (profile) {
+        profile = profile;
+        console.log("it worked!");
+        return profile
+      } else {
+        throw err
+      }
     }
   )
 );
