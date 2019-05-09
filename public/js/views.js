@@ -42,15 +42,18 @@ $(document).on("click", ".item", function(event) {
     $(".result").empty();
     var dataArray = data.map(function(index) {
       console.log("what is the index?? ====>", index.price);
-      var itemField = $("<div>");
+      var itemField = $('<div class="col">');
+      var resultCard = $('<div class="card"></div>');
+      var cardTitle = $('<h5 class="text-uppercase"></h5>');
+      var checkoutButton = $('<button class="checkout">Lease Me</button>');
       var description = $("<p>");
-      var price = $("<p>");
+      var price = $('<p class="card-text">');
       price.text(index.price);
       description.text(index.description);
-      itemField.text(index.name);
-      itemField.append(description, price);
-      // for (var i = 0; i < 4; i++) {
-      //  }
+      cardTitle.text(index.name);
+      resultCard.append(cardTitle, description, price, checkoutButton);
+      itemField.append(resultCard);
+      for (var i = 0; i < 4; i++) {}
       $(".result").append(itemField);
     });
   });
