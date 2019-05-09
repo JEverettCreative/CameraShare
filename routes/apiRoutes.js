@@ -4,13 +4,13 @@ module.exports = function(app) {
   // Get all examples
   app.get("/api/categories/:category", function(req, res) {
     console.log("we hit the route", req.params);
-    // // var TestItem = {
-    //   price: 400,
-    //   name: "nikon camera",
-    //   category: "cameras",
-    //   description: "this is a nice camera",
-    //   available: true
-    // };
+    var TestItem = {
+      price: 1200,
+      name: "cannon boss 3x",
+      category: "lenses",
+      description: "ultimate in durable lenses",
+      available: true
+    };
 
     db.category
       .findAll({
