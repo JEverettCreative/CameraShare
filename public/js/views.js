@@ -82,9 +82,11 @@ function postFormData(formData) {
     console.log("this is what we got back", data);
   });
 }
+
 $("#rental-submit").on("click", function(event) {
   event.preventDefault();
   var formData = acquireFormData();
   console.log(formData);
   postFormData(formData);
+  location.reload();
 });
