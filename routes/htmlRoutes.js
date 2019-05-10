@@ -28,7 +28,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname + "/../views/layouts/posting.html"));
   });
 
-  app.get("/cart", function(req, res) {
+  app.get("/cart/:cartItem", function(req, res) {
     res.sendFile(path.join(__dirname + "/../views/layouts/cart.html"));
   });
   // Render 404 page for any unmatched routes

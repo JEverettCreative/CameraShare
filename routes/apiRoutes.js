@@ -30,8 +30,9 @@ module.exports = function(app) {
     // });
   });
 
-  app.get("/cart/cartItem/:cartItem", function(req, res) {
+  app.get("/api/cart/:cartItem", function(req, res) {
     console.log("there's a route here, dude", req.params);
+    res.send("Is this working at all, " + req.params);
   });
 
   // Create a new example

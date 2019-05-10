@@ -101,7 +101,7 @@ $(document).on("click", ".checkout", function(event) {
   console.log("Thanks for clicking me, asshole.");
   var cartItem = $(this).val();
   console.log(cartItem);
-  window.location.href = "/cart/cartItem/" + cartItem;
+  window.location.replace("/api/cart/" + cartItem);
   console.log(cartItem);
   $("#cart-container").append(cartItem);
 });
