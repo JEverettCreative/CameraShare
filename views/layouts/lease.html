@@ -19,7 +19,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./styles/introjs-modern.css">
+    <link rel="stylesheet" href="./styles/bootstrap-tour-standalone.min.css">
   </head>
   <body>
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark camera-nav">
@@ -43,7 +43,7 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="posting">List</a>
+            <a class="nav-link" href="posting" id="list-tour">List</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"
@@ -60,9 +60,9 @@
     </nav>
     <div class="jumbotron jumbotron-fluid">
 
-      <div class = "items"></div>
+      <div class = "items" id="category-tour"></div>
 
-      <h4 class="display-8" data-intro="Navigate here to post your own rental.">Items available for lease</h4>
+      <h4 class="display-8">Items available for lease</h4>
     </div>
           <div class="row result">
               <!-- <ul></ul> -->
@@ -72,8 +72,7 @@
     </div>
 
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.css"></script>
-    <script src="./js/intro.js"></script>
+    
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -88,12 +87,28 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/bootstrap-tour-standalone.min.js"></script>
    
     <script src = "./js/views.js"></script>
     <script>
-      $(document).ready(function(){
-        introJs().start();
+      var tour = new Tour({
+        steps: [
+          {
+            element: "#list-tour",
+            title: "Step One",
+            content: "To post your own rental, click 'List'"
+          },
+          {
+            element: "#category-tour",
+            title: "Step Two",
+            content: "To view available rentals, click a category here."
+          }
+        ]
       });
+
+      tour.init();
+
+      tour.start();
       
     </script>
   </body>
