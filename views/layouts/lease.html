@@ -86,6 +86,30 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/shepherd/1.8.1/js/shepherd.min.js"></script>
+    <script>
+    
+    const tour = new Shepard.Tour({
+      defaults: {
+        classes: 'shepard-these-arrows',
+      }
+    })
+
+    tour.addStep('example-step', {
+      text: 'this is where you will learn about us.',
+      attachTo: '.nav-item active',
+    buttons: [{
+      text: 'next',
+      action: tour.next
+    }
+
+    ]
+   });
+    
+    tour.start()
+
+    </script>
 
     <script src = "./js/views.js"></script>
   </body>
