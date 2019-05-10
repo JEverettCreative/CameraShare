@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LogIn</title>
     <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+    <!-- <link rel="stylesheet" href="./styles/introjs-modern.css"> -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -60,7 +61,7 @@
 
       <div class = "items"></div>
 
-      <h4 class="display-8">Items available for lease</h4>
+      <h4 class="display-8" data-intro="Navigate here to post your own rental.">Items available for lease</h4>
     </div>
           <div class="row result">
               <!-- <ul></ul> -->
@@ -70,10 +71,8 @@
     </div>
 
     
-     <!-- Direct Tippy CDNs -->
-    <script src="https://unpkg.com/popper.js@1"></script>
-    <script src="https://unpkg.com/tippy.js@4"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.css"></script>
+    <script src="./js/intro.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -88,37 +87,14 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <!-- Chris's CDN -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script> -->
-    
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/shepherd/1.8.1/js/shepherd.min.js"></script> -->
-    
-    <script>
-    // Final step of utilizing Tippy, according to Docs
-    // import tippy from 'tippy.js'
-    import Shepherd from 'shepherd.js';
-    const tour = new Shepherd.Tour({
-      defaults: {
-        classes: 'shepherd-these-arrows',
-      }
-    })
-
-    tour.addStep('example-step', {
-      text: 'this is where you will learn about us.',
-      attachTo: '.nav-item active',
-    buttons: [{
-      text: 'next',
-      action: tour.next
-    }
-
-    ]
-   });
-    
-    tour.start()
-
-    </script>
-
+   
     <script src = "./js/views.js"></script>
+    <script>
+      $(document).ready(function(){
+        introJs().start();
+      });
+      
+    </script>
   </body>
 </html>
 
