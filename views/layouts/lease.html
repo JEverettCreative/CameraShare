@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LogIn</title>
     <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+    <link rel="stylesheet" href="/styles/shepherd-theme-default.css">
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -69,7 +70,7 @@
           <br><br>
     </div>
 
-    
+    <script src="./js/shepherd.js"></script>
      <!-- Direct Tippy CDNs -->
     <script src="https://unpkg.com/popper.js@1"></script>
     <script src="https://unpkg.com/tippy.js@4"></script>
@@ -92,13 +93,13 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/popper.min.js"></script> -->
     
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/shepherd/1.8.1/js/shepherd.min.js"></script> -->
-    
+    <script src = "./js/views.js"></script>
     <script>
     // Final step of utilizing Tippy, according to Docs
     // import tippy from 'tippy.js'
-    import Shepherd from 'shepherd.js';
+    
     const tour = new Shepherd.Tour({
-      defaults: {
+      defaultStepOptions: {
         classes: 'shepherd-these-arrows',
       }
     })
@@ -118,7 +119,6 @@
 
     </script>
 
-    <script src = "./js/views.js"></script>
   </body>
 </html>
 
