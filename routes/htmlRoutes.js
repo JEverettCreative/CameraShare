@@ -10,12 +10,12 @@ module.exports = function(app) {
           status: 'session cookie set'
       });
   } 
-  // else {
-  //     res.cookie('token', '')
-  //     res.json({
-  //         status: 'session cookie not set'
-  //     });
-  //   }
+  else {
+      res.cookie('token', '')
+      res.json({
+          status: 'session cookie not set'
+      });
+    }
     res.sendFile(path.join(__dirname + "/../views/layouts/index.html"));
   });
 

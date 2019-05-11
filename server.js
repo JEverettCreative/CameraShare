@@ -2,7 +2,7 @@ require("dotenv").config();
 var express = require("express");
 // var exphbs = require("express-handlebars");
 var passport = require("passport");
-var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 var cookieParser = require("cookie-parser");
 var cookieSession = require("cookie-session");
 
@@ -25,7 +25,7 @@ app.use(passport.session());
 app.use(
   cookieSession({
     name: "session",
-    keys: process.env.COOKIE_KEY
+    keys: [process.env.COOKIE_KEY]
   })
 );
 app.use(cookieParser());
@@ -79,6 +79,9 @@ passport.serializeUser(function(profile, done) {
 
 passport.deserializeUser(function(id, done) {
   console.log("Deserialize profile called.");
+  Profile.findByID(id, function (err, profile) {
+    done(err, profile);
+  });
   return done(null, profile);
 });
 
