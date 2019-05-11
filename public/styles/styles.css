@@ -10,14 +10,14 @@ body {
   
     display: flex;
     justify-content: space-around;
-    border:1px solid;
-     align-items: center
+    align-items: center;
 }
 
 .item{
   border: 2px solid black;
-    height: 400px;
-    width: 400px;
+    max-height: 300px;
+    max-width: 300px;
+    border-radius: 50%;
 }
 
 .jumbotron{

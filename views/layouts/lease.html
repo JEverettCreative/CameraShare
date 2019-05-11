@@ -58,17 +58,22 @@
         </ul>
       </div>
     </nav>
-    <div class="jumbotron jumbotron-fluid">
-
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h2>Categories</h2>
       <div class = "items" id="category-tour"></div>
 
+      
+    </div>
+    <div class="container text-center">
       <h4 class="display-8">Items available for lease</h4>
     </div>
-          <div class="row result">
-              <!-- <ul></ul> -->
+    
+    <div class="row result" id="available-tour">
+      
+        <!-- <ul></ul> -->
 
-          </div>
-          <br><br>
+    </div>
+    <br><br>
     </div>
 
     
@@ -92,19 +97,30 @@
     <script src = "./js/views.js"></script>
     <script>
       var tour = new Tour({
+        name: "tour",
         steps: [
           {
             element: "#list-tour",
-            title: "Step One",
-            content: "To post your own rental, click 'List'"
+            title: "Posting Gear",
+            content: "To post your own rental, click 'List'",
+            placement: "bottom"
           },
           {
             element: "#category-tour",
-            title: "Step Two",
-            content: "To view available rentals, click a category here."
+            title: "Find Rentals",
+            content: "To find available rentals, click a category here.",
+            placement: "top"
+          },
+          {
+            element: "#available-tour",
+            title: "Search Results",
+            content: "All available rentals in the chosen category will appear at the bottom of the page.",
+            placement: "bottom"
           }
         ],
-        smartPlacement: true
+        storage: false,
+        smartPlacement: true,
+        backdrop: true
       });
 
       tour.init();

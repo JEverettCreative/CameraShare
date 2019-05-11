@@ -1,21 +1,18 @@
 var imageArray = [
   {
-    url:
-      "https://images.pexels.com/photos/243757/pexels-photo-243757.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    url: "/imgs/cameras.jpg",
     type: "cameras"
   },
   {
-    url:
-      "https://cdn.pixabay.com/photo/2013/07/13/11/41/camera-158471_960_720.png",
+    url: "/imgs/lenses.jpg",
     type: "lenses"
   },
   {
-    url:
-      "https://images-na.ssl-images-amazon.com/images/I/61KazbOZmJL._SX425_.jpg",
+    url: "/imgs/lights.jpg",
     type: "lighting"
   },
   {
-    url: "https://www.samys.com/images/categorypage/gimbal_category.jpg",
+    url: "/imgs/accessories.jpg",
     type: "accesories"
   }
 ];
