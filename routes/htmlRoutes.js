@@ -3,6 +3,10 @@ var path = require("path");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../views/layouts/index.html"));
+  });
+
+  app.get("/login", (req, res) => {
     if (req.session.token) {
       res.cookie('token', req.session.token);
       console.log("cookie has been set!!!");      
@@ -16,10 +20,9 @@ module.exports = function(app) {
           status: 'session cookie not set'
       });
     }
-    res.sendFile(path.join(__dirname + "/../views/layouts/index.html"));
   });
 
-  app.get('/logout', (req, res) => {
+  app.get("/logout", (req, res) => {
     req.logout();
     req.session = null;
     res.redirect('/');

@@ -10,6 +10,7 @@ var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+var profile;
 
 // Middleware
 app.use(
@@ -59,7 +60,7 @@ passport.use(
     function(token, tokenSecret, profile, done) {
       console.log("USER ===>", profile);
       if (profile) {
-        profile = profile;
+        var profile = profile;
         console.log("it worked!");
         return done(null, {
           profile: profile,
@@ -71,6 +72,9 @@ passport.use(
     }
   )
 );
+
+console.log(profile);
+
 
 passport.serializeUser(function(profile, done) {
   console.log("Serialize profile called.");
