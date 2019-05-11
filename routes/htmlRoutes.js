@@ -5,6 +5,7 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     if (req.session.token) {
       res.cookie('token', req.session.token);
+      console.log("cookie has been set!!!");      
       res.json({
           status: 'session cookie set'
       });
