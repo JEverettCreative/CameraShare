@@ -28,8 +28,19 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname + "/../views/layouts/posting.html"));
   });
 
+  // Route for rendering the cart from the lease button
   app.get("/cart/:cartItem", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../views/layouts/cart.html"));
+    db.category
+      .findOne({ where: { id: req.params.cartItem } })
+      .then(function(cartItem) {
+        res.sendFile(path.join(__dirname + "/../views/layouts/cart.html"), {
+          cartItem: cartItem
+        });
+        // var testDiv = $("<div class='jumbotron'>");
+        // var testHeader = $("<h1>").append(cartItem);
+        // testDiv.append(testHeader);
+        // $("#cart-container").append(testDiv);
+      });
   });
   // Render 404 page for any unmatched routes
   // app.get("*", function(req, res) {

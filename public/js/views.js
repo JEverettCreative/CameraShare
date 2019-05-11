@@ -96,12 +96,33 @@ $("#rental-submit").on("click", function(event) {
   location.reload();
 });
 
+// Defunct function to attempt to fill the cart when cart.html loads. Nonfunctional
+// function fillCart() {
+//   var testDiv = $("<div class='jumbotron'>");
+//   var testHeader = $("<h1>").append(cartItem);
+//   testDiv.append(testHeader);
+//   $("#cart-container").append(testDiv);
+// }
+
+// $(document).ready(function(){
+//   fillCart();
+// });
+
+// $("#view-cart").on("click", function(event){
+//   event.preventDefault();
+//   $.ajax({
+//     type: "get",
+//     url: "/api/cart/",
+//     data: formData
+//   }).then(function(data) {
+//     console.log("this is what we got back", data);
+//   });
+// })
+
 $(document).on("click", ".checkout", function(event) {
   event.preventDefault();
   console.log("Thanks for clicking me, asshole.");
   var cartItem = $(this).val();
   console.log(cartItem);
-  window.location.replace("/api/cart/" + cartItem);
-  console.log(cartItem);
-  $("#cart-container").append(cartItem);
+  window.location.replace("/cart/" + cartItem);
 });
