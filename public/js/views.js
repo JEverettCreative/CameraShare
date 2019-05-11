@@ -1,19 +1,19 @@
 var imageArray = [
   {
-    url: "/imgs/cameras.jpg",
+    url: "/imgs/cameras1.jpg",
     type: "cameras"
   },
   {
-    url: "/imgs/lenses.jpg",
+    url: "/imgs/lenses1.jpg",
     type: "lenses"
   },
   {
-    url: "/imgs/lights.jpg",
+    url: "/imgs/lights1.jpg",
     type: "lighting"
   },
   {
-    url: "/imgs/accessories.jpg",
-    type: "accesories"
+    url: "/imgs/accessories1.jpg",
+    type: "accessories"
   }
 ];
 
