@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(26,115,232, 0.1);
+  background-color: rgb(26,115,232, 0.1) !important;
 }
 
 .list-group-item {
@@ -22,8 +22,10 @@ body {
 
 .jumbotron{
   padding-top: 30%;
-  padding-bottom: 30%;
+  padding-bottom: 5% !important;
   margin-top: 5%;
+  margin-bottom: 0 !important;
+  background-color: transparent !important;
 }
 
 
@@ -66,4 +68,12 @@ body {
     margin: 4px auto;
     background-color: #F14641;
     border-radius: 70%;
+}
+
+.display-8 {
+  padding: 0;
+}
+
+.padding-bot {
+  padding-bottom: 1em;
 }
