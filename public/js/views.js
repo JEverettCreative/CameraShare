@@ -20,7 +20,7 @@ var imageArray = [
 for (var i = 0; i < 4; i++) {
   var item = $("<img>");
   item.attr({
-    class: "item",
+    class: "item grow",
     src: imageArray[i].url,
     category: imageArray[i].type
   });
