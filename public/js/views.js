@@ -39,10 +39,10 @@ $(document).on("click", ".item", function(event) {
     $(".result").empty();
     var dataArray = data.map(function(index) {
       console.log("what is the index?? ====>", index.price);
-      var itemField = $('<div class="col">');
+      var itemField = $('<div class="col flex-wrap">');
       var resultCard = $('<div class="card"></div>');
-      var cardTitle = $('<h5 class="text-uppercase"></h5>');
-      var checkoutButton = $('<button class="checkout" ' + 'value=' + index.id + '>Lease Me</button>');
+      var cardTitle = $('<h5 class="text-uppercase text-center font-theme"></h5>');
+      var checkoutButton = $('<button class="checkout btn btn-primary" ' + 'value=' + index.id + '>Lease Me</button>');
       var description = $("<p>");
       var price = $('<p class="card-text">');
       price.text(index.price);
