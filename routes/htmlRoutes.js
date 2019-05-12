@@ -3,6 +3,33 @@ var path = require("path");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../views/layouts/index.html"));
+  });
+
+  app.get("/login", (req, res) => {
+    if (req.session.token) {
+      res.cookie('token', req.session.token);
+      console.log("cookie has been set!!!");      
+      res.json({
+          status: 'session cookie set'
+      });
+  } 
+  else {
+      res.cookie('token', '')
+      res.json({
+          status: 'session cookie not set'
+      });
+    }
+  });
+
+  app.get("/logout", (req, res) => {
+    req.logout();
+    req.session = null;
+    res.redirect('/');
+});
+
+  // Load leasing page
+  app.get("/lease", function(req, res) {
     // db.Example.findAll({}).then(function(dbExamples) {
     //   res.render("index", {
     //     msg: "Welcome!",
