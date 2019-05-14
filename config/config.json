@@ -2,7 +2,8 @@
   "development": {
     "username": "root",
 
-    "password": "lily1chloe2",
+    "password": "root",
+
     "database": "camerashare_db",
 
     "host": "localhost",

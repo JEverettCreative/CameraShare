@@ -18,10 +18,14 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/bootstrap-tour-standalone.min.css">
+    
+    
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">CameraShare</a>
+      <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark camera-nav">
+        <a class="navbar-brand font-theme" href="#"><span><i class="fas fa-camera fa-lg blue-font"></i></span> CameraShare</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -36,43 +40,51 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="lease"
               >Rentals <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">List</a>
+            <a class="nav-link" href="posting" id="list-tour">List</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="cart/:cartItem"
               ><span><i class="fas fa-shopping-cart"></i></span
             ></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"
+            <a class="nav-link" href="/"
               ><span><i class="fas fa-user-circle"></i></span
             ></a>
           </li>
         </ul>
       </div>
     </nav>
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid text-center">
+      <h2 class="padding-bot font-theme">RENTAL CATEGORIES</h2>
+      <div class = "items" id="category-tour"></div>
 
-<div class = "items"></div>
-
-<h4 class="display-8">Items available for lease</h4>
+      
     </div>
-      <br><br>
-          <br><br>
-          <div class = "result">put results here
+    <div class="container text-center padding-bot">
+      <h4 class="display-8 font-theme">Items Currently for Lease</h4>
+      <div class="underlining"></div>
+    </div>
 
+    <div class="row result" id="available-tour">
+      
+        <!-- <ul></ul> -->
 
-          </div>
-          <br><br>
+    </div>
+    <br><br>
     </div>
 
     
-
+    
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -83,25 +95,42 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-
-      
-
-    ></script>
-
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+    <script src="./js/bootstrap-tour-standalone.min.js"></script>
+   
     <script src = "./js/views.js"></script>
+    <script>
+      var tour = new Tour({
+        name: "tour",
+        steps: [
+          {
+            element: "#list-tour",
+            title: "Posting Gear",
+            content: "To post your own rental, click 'List'",
+            placement: "bottom"
+          },
+          {
+            element: "#category-tour",
+            title: "Find Rentals",
+            content: "To find available rentals, click a category here.",
+            placement: "top"
+          },
+          {
+            element: "#available-tour",
+            title: "Search Results",
+            content: "All available rentals in the chosen category will appear at the bottom of the page.",
+            placement: "bottom"
+          }
+        ],
+        storage: false,
+        smartPlacement: true,
+        backdrop: true
+      });
+
+      tour.init();
+
+      tour.start();
+      
+    </script>
   </body>
 </html>
 

@@ -1,29 +1,26 @@
 var imageArray = [
   {
-    url:
-      "https://images.pexels.com/photos/243757/pexels-photo-243757.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    url: "/imgs/cameras1.jpg",
     type: "cameras"
   },
   {
-    url:
-      "https://cdn.pixabay.com/photo/2013/07/13/11/41/camera-158471_960_720.png",
+    url: "/imgs/lenses1.jpg",
     type: "lenses"
   },
   {
-    url:
-      "https://images-na.ssl-images-amazon.com/images/I/61KazbOZmJL._SX425_.jpg",
+    url: "/imgs/lights1.jpg",
     type: "lighting"
   },
   {
-    url: "https://www.samys.com/images/categorypage/gimbal_category.jpg",
-    type: "accesories"
+    url: "/imgs/accessories1.jpg",
+    type: "accessories"
   }
 ];
 
 for (var i = 0; i < 4; i++) {
   var item = $("<img>");
   item.attr({
-    class: "item",
+    class: "item grow",
     src: imageArray[i].url,
     category: imageArray[i].type
   });
@@ -42,15 +39,18 @@ $(document).on("click", ".item", function(event) {
     $(".result").empty();
     var dataArray = data.map(function(index) {
       console.log("what is the index?? ====>", index.price);
-      var itemField = $("<div>");
+      var itemField = $('<div class="col flex-wrap">');
+      var resultCard = $('<div class="card"></div>');
+      var cardTitle = $('<h5 class="text-uppercase text-center font-theme"></h5>');
+      var checkoutButton = $('<button class="checkout btn btn-primary" ' + 'value=' + index.id + '>Lease Me</button>');
       var description = $("<p>");
-      var price = $("<p>");
+      var price = $('<p class="card-text">');
       price.text(index.price);
       description.text(index.description);
-      itemField.text(index.name);
-      itemField.append(description, price);
-      // for (var i = 0; i < 4; i++) {
-      //  }
+      cardTitle.text(index.name);
+      resultCard.append(cardTitle, description, price, checkoutButton);
+      itemField.append(resultCard);
+      for (var i = 0; i < 4; i++) {}
       $(".result").append(itemField);
     });
   });
@@ -58,49 +58,45 @@ $(document).on("click", ".item", function(event) {
   console.log("you got clicked");
 });
 
-$("#name-search-btn").on("click", function() {
-  var nameSearched = $("#name-search")
-    .val()
-    .trim();
+function acquireFormData() {
+  return {
+    price: $("#rental-price")
+      .val()
+      .trim(),
+    description: $("#rental-description")
+      .val()
+      .trim(),
+    name: $("#rental-name")
+      .val()
+      .trim(),
+    category: $("#rental-category")
+      .val()
+      .trim()
+  };
+}
 
-  $.get("/api/name/" + nameSearched, function(data) {
-    console.log(data);
-    rendername(data);
+function postFormData(formData) {
+  $.ajax({
+    type: "post",
+    url: "/api/posting/",
+    data: formData
+  }).then(function(data) {
+    console.log("this is what we got back", data);
   });
+}
+
+$("#rental-submit").on("click", function(event) {
+  event.preventDefault();
+  var formData = acquireFormData();
+  console.log(formData);
+  postFormData(formData);
+  location.reload();
 });
 
-// function rendercategory(data) {
-//   if (data.length !== 0) {
-//     $("#stats").empty();
-//     $("#stats").show();
-
-//     for (var i = 0; i < data.length; i++) {
-//       var div = $("<div>");
-
-//       div.append("<h2>" + data[i].category + "</h2>");
-//       div.append("<p>name: " + data[i].name + "</p>");
-//       div.append("<p>price: " + data[i].price + "</p>");
-//       div.append("<p>description: " + data[i].description + "</p>");
-//       div.append(
-//         "<button class='delete' data-id='" +
-//           data[i].id +
-//           "'>DELETE category</button>"
-//       );
-
-//       $("#stats").append(div);
-//     }
-
-//     $(".delete").click(function() {
-//       $.ajax({
-//         method: "DELETE",
-//         url: "/api/category/" + $(this).attr("data-id")
-//       }).then(function() {
-//         console.log("Deleted Successfully!");
-//       });
-
-//       $(this)
-//         .closest("div")
-//         .remove();
-//     });
-//   }
-// }
+$(document).on("click", ".checkout", function(event) {
+  event.preventDefault();
+  console.log("Thanks for clicking me, asshole.");
+  var cartItem = $(this).val();
+  console.log(cartItem);
+  window.location.replace("/cart/" + cartItem);
+});
