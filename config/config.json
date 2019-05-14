@@ -1,8 +1,11 @@
 {
   "development": {
     "username": "root",
+
     "password": "root",
+
     "database": "camerashare_db",
+
     "host": "localhost",
     "dialect": "mysql"
   },

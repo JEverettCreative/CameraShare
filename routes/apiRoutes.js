@@ -1,6 +1,7 @@
 var db = require("../models");
 var passport = require("passport");
 
+
 module.exports = function(app) {
   // Get all examples
   app.get("/api/categories/:category", function(req, res) {
@@ -44,6 +45,7 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
   
   // GET /auth/google
   //   Use passport.authenticate() as route middleware to authenticate the
@@ -70,4 +72,6 @@ module.exports = function(app) {
       res.redirect("/");
     }
   );
+
 };
+
