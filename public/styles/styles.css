@@ -11,18 +11,25 @@ body {
   line-height: 5.5;
 }
 
-.items{
+.items {
   
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.item{
+.item {
   border: 2px solid black;
     max-height: 300px;
     max-width: 300px;
+    width: 25%;
     border-radius: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .item {
+    width: 100%;
+  }
 }
 
 .grow {

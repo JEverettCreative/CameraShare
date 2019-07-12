@@ -17,7 +17,7 @@ var imageArray = [
   }
 ];
 
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < imageArray.length; i++) {
   var item = $("<img>");
   item.attr({
     class: "item grow",
@@ -95,7 +95,7 @@ $("#rental-submit").on("click", function(event) {
 
 $(document).on("click", ".checkout", function(event) {
   event.preventDefault();
-  console.log("Thanks for clicking me, asshole.");
+  console.log("Thanks for clicking me");
   var cartItem = $(this).val();
   console.log(cartItem);
   window.location.replace("/cart/" + cartItem);
