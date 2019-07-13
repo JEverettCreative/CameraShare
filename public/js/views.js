@@ -39,8 +39,8 @@ $(document).on("click", ".item", function(event) {
     $(".result").empty();
     var dataArray = data.map(function(index) {
       console.log("what is the index?? ====>", index.price);
-      var itemField = $('<div class="col flex-wrap">');
-      var resultCard = $('<div class="card"></div>');
+      var itemField = $('<div class="results">');
+      var resultCard = $('<div class="card">');
       var cardTitle = $('<h5 class="text-uppercase text-center font-theme"></h5>');
       var checkoutButton = $('<button class="checkout btn btn-primary" ' + 'value=' + index.id + '>Lease Me</button>');
       var description = $("<p>");
