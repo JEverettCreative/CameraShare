@@ -17,7 +17,7 @@ var imageArray = [
   }
 ];
 
-for (var i = 0; i < 4; i++) {
+for (var i = 0; i < imageArray.length; i++) {
   var item = $("<img>");
   item.attr({
     class: "item grow",
@@ -39,8 +39,8 @@ $(document).on("click", ".item", function(event) {
     $(".result").empty();
     var dataArray = data.map(function(index) {
       console.log("what is the index?? ====>", index.price);
-      var itemField = $('<div class="col flex-wrap">');
-      var resultCard = $('<div class="card"></div>');
+      var itemField = $('<div class="results">');
+      var resultCard = $('<div class="card">');
       var cardTitle = $('<h5 class="text-uppercase text-center font-theme"></h5>');
       var checkoutButton = $('<button class="checkout btn btn-primary" ' + 'value=' + index.id + '>Lease Me</button>');
       var description = $("<p>");
@@ -95,8 +95,13 @@ $("#rental-submit").on("click", function(event) {
 
 $(document).on("click", ".checkout", function(event) {
   event.preventDefault();
-  console.log("Thanks for clicking me, asshole.");
+  console.log("Thanks for clicking me");
   var cartItem = $(this).val();
   console.log(cartItem);
+  // Clear everything currently in localStorage
+  localStorage.clear();
+  // Add cartItem to localStorage for use on the /cart route
+  localStorage.setItem("id", cartItem);
   window.location.replace("/cart/" + cartItem);
 });
+

@@ -39,22 +39,25 @@
         <div class="modal-dialog">
       
           <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
+          <div class="modal-content text-center">
+            <div class="modal-header justify-content-center">
               
 
-              <h4 class="modal-title font-theme">Please Login To Utilize Our Website</h4>
+              <h4 class="modal-title font-theme">Login to CameraShare</h4>
 
             </div>
             <div class="modal-body">
-              <p>Some text in the modal.</p>
-
-
-              <a class="btn" href="/auth/google">Sign In with Google</a>
+              
+              <a class="btn" id="gSignInWrapper" href="/auth/google">
+                <div id="customBtn" class="customGPlusSignIn">
+                </div>
+              </a>
 
             </div>
+
             <div class="modal-footer">
             </div>
+            
           </div>
       
         </div>
@@ -72,6 +75,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src = "./js/views.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
