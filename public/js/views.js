@@ -98,5 +98,10 @@ $(document).on("click", ".checkout", function(event) {
   console.log("Thanks for clicking me");
   var cartItem = $(this).val();
   console.log(cartItem);
+  // Clear everything currently in localStorage
+  localStorage.clear();
+  // Add cartItem to localStorage for use on the /cart route
+  localStorage.setItem("id", cartItem);
   window.location.replace("/cart/" + cartItem);
 });
+

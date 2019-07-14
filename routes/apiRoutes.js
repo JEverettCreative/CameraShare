@@ -22,22 +22,25 @@ module.exports = function(app) {
         res.json(data);
       });
 
-    // db.category.create(TestItem).then(function(data){
-    //   console.log(data)
-    // })
-
-    // res.send("we sent back")
-    // db.Example.findAll({}).then(function(dbExamples) {
-    //   res.json(dbExamples);
-    // });
   });
 
   app.get("/api/cart/:cartItem", function(req, res) {
     console.log("there's a route here, dude", req.params);
-    res.send("Is this working at all, " + req.params);
-  });
+    // Use params to find item in database, then send it back as json data
+    db.category
+    .findOne({ where: { id: req.params.cartItem } })
+    .then(function(data) {
+        console.log(data);
+        res.json(data);
+      });
+      // var testDiv = $("<div class='jumbotron'>");
+      // var testHeader = $("<h1>").append(cartItem);
+      // testDiv.append(testHeader);
+      // $("#cart-container").append(testDiv);
+    });
+    
 
-  // Create a new example
+  // Create a new listing
   app.post("/api/posting", function(req, res) {
     console.log("hit the posting route");
     db.category.create(req.body).then(function(data) {
