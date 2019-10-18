@@ -20,6 +20,22 @@ Posting a new rental currently is as simple as filling out a small form, which w
 ## License
 - None
 
+## Screenshots
+* Landing on the homepage will open a modal prompting oAuth login w/ Google
+![OAuthModal](https://user-images.githubusercontent.com/45632983/67115859-c5faf680-f1a4-11e9-848b-f7f7324e8972.png)
+
+* Navigating to the Rentals page will present a set of categories to choose from
+![RentalPage](https://user-images.githubusercontent.com/45632983/67115978-0b1f2880-f1a5-11e9-8713-2124c6978c96.png)
+
+* Selecting a category will populate items listed in the database
+![ItemForLease](https://user-images.githubusercontent.com/45632983/67116421-fc854100-f1a5-11e9-85ba-fbc10a35dca0.png)
+
+* Clicking Lease Me will add the item and take you to your cart
+![Cart](https://user-images.githubusercontent.com/45632983/67116759-bed4e800-f1a6-11e9-9739-fe0780b0aafb.png)
+
+* New items can be listed on the List page
+![Listing](https://user-images.githubusercontent.com/45632983/67116874-f479d100-f1a6-11e9-857c-a73d86329758.png)
+
 ## How to use this code
 - Open the app in the deployed Heroku environment listed below. For now, you can click outside of the modal to ignore Google login. Dummy account will be incorporated in a future version alongside greater functionality.
 
