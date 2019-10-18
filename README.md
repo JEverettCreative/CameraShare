@@ -11,7 +11,7 @@
 - Node.js, Express.js, MySQL, Sequelize
 
 ## About
-- Second group project for the Vanderbilt Coding Bootcamp. In the film and photography industries, great gear is both a necessity and often very expensive. CameraShare aims to tackle this issue by creating a platform for Users to rent gear directly from others within the industry at cheaper prices than a full purchase or going through a production house, as well as rent out their own gear when not in use. Essentially, it's an AirBnB model approach to gear rentals.
+Second group project for the Vanderbilt Coding Bootcamp. In the film and photography industries, great gear is both a necessity and often very expensive. CameraShare aims to tackle this issue by creating a platform for Users to rent gear directly from others within the industry at cheaper prices than a full purchase or going through a production house, as well as rent out their own gear when not in use. Essentially, it's an AirBnB model approach to gear rentals.
 
 Upon loading, the app will prompt a login using Google oAuth. Ultimately, all functionality will be restricted to authorized and authenticated users. On the Rentals page, currently 4 categories exist. Clicking any category will call on the MySQL database using Sequelize to pull all items available for rent and display them on the page. The User can then add an item to their cart for checkout. (Note: As of this version, items are not yet added to the Cart. The Cart page is currently hard-coded for demo.)
 
